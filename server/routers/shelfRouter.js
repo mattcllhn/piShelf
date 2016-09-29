@@ -5,12 +5,7 @@ var mongoose = require('mongoose');
 //bring in Schema
 var Item = require('../models/shelfItem');
 
-// var dummyItem = new Item({
-//   description: 'Lovecraft collection',
-//   owner: 'Nate'
-// });
 //routes
-
 router.get('/items', function(req, res){
   console.log('in items get');
   Item.find({}, function(err, results){
