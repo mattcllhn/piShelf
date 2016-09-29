@@ -29,6 +29,8 @@ myApp.controller('displayController', ['$scope', 'ShelfFactory', function($scope
         imageUrl: $scope.imageIn
       };
       return ShelfFactory.addToShelf(thing);
+      console.log('thing on shelf',thing);
+
     };
 
 }]);
