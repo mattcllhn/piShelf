@@ -52,7 +52,7 @@ myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', functi
         emptyLocalStorage();
         $scope.loggedIn = false;
       }
-    })
+    });
   };
 
   $scope.shelf = [];
@@ -66,8 +66,10 @@ myApp.controller('displayController', ['$scope', '$http', 'ShelfFactory', functi
   };
   showShelf();
 
+
   $scope.putThingOnShelf = function(){
     var thing = {
+      name:$scope.itemIn,
       description: $scope.descriptionIn,
       owner: $scope.userProfile.name,
       imageUrl: $scope.imageIn
