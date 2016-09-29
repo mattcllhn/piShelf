@@ -5,10 +5,10 @@ var mongoose = require('mongoose');
 //bring in Schema
 var Item = require('../models/shelfItem');
 
-var dummyItem = new Item({
-  description: 'Lovecraft collection',
-  owner: 'Nate'
-});
+// var dummyItem = new Item({
+//   description: 'Lovecraft collection',
+//   owner: 'Nate'
+// });
 //routes
 
 router.get('/items', function(req, res){
@@ -44,6 +44,20 @@ router.post('/items', function(req, res){
   });
 });//end /items post
 
-console.log(dummyItem);
+router.delete('/items', function(req, res){
+  console.log('in items delete');
+  Item.findByIdAndRemove(req.query.id, function(err, result){
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else {
+      console.log('item deleted');
+      res.send(result);
+    }
+  });
+});//end /items delete
+
+// console.log(dummyItem);
 
 module.exports = router;

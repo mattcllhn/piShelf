@@ -27,11 +27,23 @@ myApp.factory('ShelfFactory', ['$http', function($http){
     });
   };
 
+  var removeFromShelf = function(id){
+    return $http({
+      method: 'DELETE',
+      url: '/shelf/items?id=' + id
+    }).then(function(results){
+      console.log('removed');
+    }, function(response){
+      console.log('err, check server logs');
+    });
+  }
+
   return {
     shelf: function(){
       return shelfItems;
     },
     fillShelf: fillShelf,
-    addToShelf: addToShelf
+    addToShelf: addToShelf,
+    removeFromShelf: removeFromShelf
   };
 }]);
