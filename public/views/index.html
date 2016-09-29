@@ -19,14 +19,14 @@
       </div>
 
       <div ng-show="loggedIn">
-        <input type="text" placeholder="Item" ng-model="descriptionIn">
-        <!-- <input type="text" placeholder="description" ng-model="descriptionIn"> -->
+        <input type="text" placeholder="Item" ng-model="itemIn">
+        <input type="text" placeholder="description" ng-model="descriptionIn">
         <input type="text" placeholder="Image URL" ng-model="imageIn">
         <button type="button" ng-click="putThingOnShelf()">Put on shelf</button>
       </div>
 
       <div ng-repeat="thing in shelf">
-        <p>{{thing.description}} placed by {{thing.owner}} <button type="button" ng-if="loggedIn" ng-click="removeThing(thing._id)">Remove from shelf</button></p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
+        <p>{{thing.item}} placed by {{thing.owner}} <button type="button" ng-if="loggedIn" ng-click="removeThing(thing._id)">Remove from shelf</button></p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
       </div>
 
 
