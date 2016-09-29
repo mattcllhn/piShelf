@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Pi Shelf</title>
+    <script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/script.js" charset="utf-8"></script>
     <script src="scripts/factories/shelfFactory.js" charset="utf-8"></script>
@@ -20,11 +21,11 @@
       <div ng-show="loggedIn">
         <input type="text" placeholder="Item" ng-model="descriptionIn">
         <input type="text" placeholder="Image URL" ng-model="imageIn">
-        <button type="button"ng-click="putThingOnShelf()">Put on shelf</button>
+        <button type="button" ng-click="putThingOnShelf()">Put on shelf</button>
       </div>
 
       <div ng-repeat="thing in shelf">
-        <p>{{thing.description}} placed by {{thing.owner}}</p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
+        <p>{{thing.description}} placed by {{thing.owner}} <button type="button" ng-if="loggedIn" ng-click="removeThing(thing._id)">Remove from shelf</button></p> <img ng-src="{{thing.imageUrl}}" ng-if="thing.imageUrl"/>
       </div>
 
 

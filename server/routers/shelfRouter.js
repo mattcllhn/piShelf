@@ -44,6 +44,18 @@ router.post('/items', function(req, res){
   });
 });//end /items post
 
-// console.log(dummyItem);
+router.delete('/items', function(req, res){
+  console.log('in items delete');
+  Item.findByIdAndRemove(req.query.id, function(err, result){
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else {
+      console.log('item deleted');
+      res.send(result);
+    }
+  });
+});//end /items delete
 
 module.exports = router;
