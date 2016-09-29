@@ -23,6 +23,7 @@ router.get('/items', function(req, res){
 router.post('/items', function(req, res){
   console.log('in items post');
   var newItem = new Item({
+    name: req.body.name,
     description: req.body.description,
     owner: req.body.owner,
     imageUrl: req.body.imageUrl
