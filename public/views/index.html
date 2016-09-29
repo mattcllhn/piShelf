@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Pi Shelf</title>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title">
     <script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/script.js" charset="utf-8"></script>
@@ -15,14 +16,14 @@
         <button ng-click='logIn()'>Log In</button>
       </div>
       <div ng-show="loggedIn">
-        <button ng-click='logOut()'>Log Out</button>
+        <button class = "btn btn-default" ng-click='logOut()'>Log Out</button>
       </div>
 
       <div ng-show="loggedIn">
         <input type="text" placeholder="Item" ng-model="itemIn">
         <input type="text" placeholder="description" ng-model="descriptionIn">
         <input type="text" placeholder="Image URL" ng-model="imageIn">
-        <button type="button" ng-click="putThingOnShelf()">Put on shelf</button>
+        <button class = "btn btn-default" type="button" ng-click="putThingOnShelf()">Put on shelf</button>
       </div>
 
       <div ng-repeat="thing in shelf">
