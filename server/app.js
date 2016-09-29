@@ -10,8 +10,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/piShelf');
 
-// var heroRouter = require('./routers/heroRouter');
-// app.use('/heroes', heroRouter);
 var shelfRouter = require('./routers/shelfRouter');
 app.use('/shelf', shelfRouter);
 
@@ -24,6 +22,6 @@ app.listen(port, function(){
 app.get('/', function(req, res){
   console.log('base hit');
   res.sendFile(path.resolve('public/views/index.html'));
-})
+});
 
 app.use(express.static('public'));

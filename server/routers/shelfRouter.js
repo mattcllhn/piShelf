@@ -5,10 +5,10 @@ var mongoose = require('mongoose');
 //bring in Schema
 var Item = require('../models/shelfItem');
 
-var dummyItem = new Item({
-  description: 'Lovecraft collection',
-  owner: 'Nate'
-});
+// var dummyItem = new Item({
+//   description: 'Lovecraft collection',
+//   owner: 'Nate'
+// });
 //routes
 
 router.get('/items', function(req, res){
@@ -22,7 +22,7 @@ router.get('/items', function(req, res){
       console.log('get successful');
       res.send(results);
     }
-  })
+  });
 });//end /items get
 
 router.post('/items', function(req, res){
@@ -44,6 +44,6 @@ router.post('/items', function(req, res){
   });
 });//end /items post
 
-console.log(dummyItem);
+// console.log(dummyItem);
 
 module.exports = router;
